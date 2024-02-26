@@ -1,4 +1,4 @@
-string{
+strong{
 	color: red;
 	font-family: bold;
 }
@@ -6,14 +6,29 @@ string{
 	width: 300px;
 	overflow: hidden;
 	overflow-x: scroll;
+	color: #AD009F;
+	font-family: Monospace;
 }
-img{
+.img,img{
 	width:290px;
 	height: 300px;
 }
 a{
-	background-color: #001DFF;
 	color: #000000;
 	border-radius: 2px;
-	border: 1px:
+	border: solid 1px ;
+	padding: 5px;
+}
+.main{
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+ii{
+	color: #F80021;
+	font-family: Monospace;
+	font-size: 20px;
+}
+.tt{
+	font-size: 15px;
+	font-family: Sans-Serif;
 }
