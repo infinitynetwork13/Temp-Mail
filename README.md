@@ -1,5 +1,8 @@
 # Temp-Mail
-Infinity network Temp-Mail
+- INFINITY NETWORK Temp-Mail
+- python
+- php
+- version V1.0
 ## Installing
 ```ruby
 apt-get update
