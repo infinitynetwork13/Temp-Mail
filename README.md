@@ -17,3 +17,5 @@ git clone https://github.com/infinitynetwork13/Temp-Mail
 cd Temp-Mail
 python main.py
 ```
+## web View
+- [web View](http://localhost:4545)
