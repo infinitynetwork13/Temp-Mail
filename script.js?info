@@ -1,0 +1,50 @@
+fetch('tool/old_data.in').then(response => response.json()).then(odata => {
+	console.log(odata);
+	let cunt = 0
+	const viewe = document.getElementById('emai_view')
+	odata.forEach(data=>{
+		cunt++
+		let a = data.from
+		let b = a.replace('\"',"")
+		let c = b.replace('"',"")
+		let d = c.replace(">","")
+		let e = d.replace("<","")
+		if(data.attachments.length === 0){
+			const div = document.createElement('fieldset')
+			div.innerHTML = `
+				<legend>Mail Box [${cunt}]</legend>
+				<p><string>ID:</string> ${data.id}</p>
+				<p><string>From:</string> ${e}</p>
+				<p><string>CC:</string> ${data.cc}</p>
+				<p><string>To:</string> ${data.to}</p>
+				<p><string>Subject:</string> ${data.subject}</p>
+				<fieldset><legend>Body</legend><div class="bod">${data.body_text}</div></fieldset>
+			`;
+			viewe.appendChild(div)
+		}else{
+			data.attachments.forEach(function(file){
+				const fi = document.createElement('fieldset')
+				fi.innerHTML = `
+					<legend>Mail Box [${cunt}]</legend>
+					<p><strong>From</strong> ${e}</p>
+					<p><string>CC:</string> ${data.cc}</p>
+					<p><string>To: </string>${data.to}</p>
+					<p><strong>Subject</strong> ${data.subject}</p>
+					<fieldset><legend>Body</legend><div class="bod">${data.body_text}</div></fieldset>
+					<fieldset><legend>File</legend>
+						<p><string>Name: </string>${file.name}</p>
+						<p><string>Size:</string> ${file.size}</p>
+						<p><img src="https://api.internal.temp-mail.io/api/v3/attachment/${file.id}?preview=1"/></p>
+						<a href="https://api.internal.temp-mail.io/api/v3/attachment/${file.id}?download=1"<button>Downloads</button></a>
+					</fieldset>
+				`
+				viewe.appendChild(fi)
+			})
+		}
+	})
+}).catch(error => {
+	console.error('Error reading the file:', error);
+});
+function cn(a) {
+	console.log(a)
+}
